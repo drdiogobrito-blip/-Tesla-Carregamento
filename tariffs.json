@@ -1,0 +1,32 @@
+[
+  {
+    "operator": "PRIO",
+    "station": null,
+    "type": null,
+    "eurPerKwh": null,
+    "activationFeeEur": null,
+    "perMinuteFeeEur": null,
+    "priceDate": null,
+    "source": null
+  },
+  {
+    "operator": "Via Verde",
+    "station": null,
+    "type": null,
+    "eurPerKwh": null,
+    "activationFeeEur": null,
+    "perMinuteFeeEur": null,
+    "priceDate": null,
+    "source": null
+  },
+  {
+    "operator": "miio",
+    "station": null,
+    "type": null,
+    "eurPerKwh": null,
+    "activationFeeEur": null,
+    "perMinuteFeeEur": null,
+    "priceDate": null,
+    "source": null
+  }
+]
