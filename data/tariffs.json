@@ -1,20 +1,16 @@
-[
-  {"operator":"PRIO","station":"Av. dos Cavaleiros 70 (100 kW)","type":"DC","eurPerKwh":0.5232,"activationFeeEur":0.2499,"perMinuteFeeEur":null,"priceDate":"2026-11-24","source":"Calculado: PRIO Electric fora de vazio 0,1399 (tarifário PRIO) + posto e taxas como no miio, IVA incl."},
-  {"operator":"PRIO","station":"Alto de Cabreira, Circunvalação 26 (150 kW)","type":"DC","eurPerKwh":0.6914,"activationFeeEur":0,"perMinuteFeeEur":null,"priceDate":"2026-11-24","source":"Calculado: PRIO Electric fora de vazio 0,1399 (tarifário PRIO) + posto e taxas como no miio, IVA incl."},
-  {"operator":"PRIO","station":"Estr. Monte da Cabreira 1 (150 kW)","type":"DC","eurPerKwh":0.6914,"activationFeeEur":0,"perMinuteFeeEur":null,"priceDate":"2026-11-24","source":"Calculado: PRIO Electric fora de vazio 0,1399 (tarifário PRIO) + posto e taxas como no miio, IVA incl."},
-  {"operator":"PRIO","station":"Av. Helen Keller (90 kW)","type":"DC","eurPerKwh":0.7504,"activationFeeEur":0.615,"perMinuteFeeEur":null,"priceDate":"2026-11-24","source":"Calculado: PRIO Electric fora de vazio 0,1399 (tarifário PRIO) + posto e taxas como no miio, IVA incl."},
-  {"operator":"PRIO","station":"OER-00239 (200 kW, nome por confirmar)","type":"DC","eurPerKwh":0.775,"activationFeeEur":0,"perMinuteFeeEur":null,"priceDate":"2026-11-24","source":"Calculado: PRIO Electric fora de vazio 0,1399 (tarifário PRIO) + posto e taxas como no miio, IVA incl."},
-  {"operator":"PRIO","station":"LSB-01032 (22 kW, nome por confirmar)","type":"AC","eurPerKwh":0.3199,"activationFeeEur":0,"perMinuteFeeEur":0.0738,"priceDate":"2026-11-24","source":"Calculado: PRIO Electric fora de vazio 0,1399 (tarifário PRIO) + posto e taxas como no miio, IVA incl."},
-  {"operator":"miio","station":"Av. dos Cavaleiros 70 (100 kW)","type":"DC","eurPerKwh":0.6464,"activationFeeEur":0.2499,"perMinuteFeeEur":null,"priceDate":"2026-11-24","source":"Simulação app miio 24/11/2026, IVA incl."},
-  {"operator":"miio","station":"Alto de Cabreira, Circunvalação 26 (150 kW)","type":"DC","eurPerKwh":0.8145,"activationFeeEur":0,"perMinuteFeeEur":null,"priceDate":"2026-11-24","source":"Simulação app miio 24/11/2026, IVA incl."},
-  {"operator":"miio","station":"Estr. Monte da Cabreira 1 (150 kW)","type":"DC","eurPerKwh":0.8145,"activationFeeEur":0,"perMinuteFeeEur":null,"priceDate":"2026-11-24","source":"Simulação app miio 24/11/2026, IVA incl."},
-  {"operator":"miio","station":"Av. Helen Keller (90 kW)","type":"DC","eurPerKwh":0.8735,"activationFeeEur":0.615,"perMinuteFeeEur":null,"priceDate":"2026-11-24","source":"Simulação app miio 24/11/2026, IVA incl."},
-  {"operator":"miio","station":"OER-00239 (200 kW, nome por confirmar)","type":"DC","eurPerKwh":0.8981,"activationFeeEur":0,"perMinuteFeeEur":null,"priceDate":"2026-11-24","source":"Simulação app miio 24/11/2026, IVA incl."},
-  {"operator":"miio","station":"LSB-01032 (22 kW, nome por confirmar)","type":"AC","eurPerKwh":0.443,"activationFeeEur":0,"perMinuteFeeEur":0.0738,"priceDate":"2026-11-24","source":"Simulação app miio 24/11/2026, IVA incl."},
-  {"operator":"Via Verde","station":"Av. dos Cavaleiros 70 (100 kW)","type":"DC","eurPerKwh":0.5332,"activationFeeEur":0.2499,"perMinuteFeeEur":null,"priceDate":"2026-11-24","source":"Calculado: energia Via Verde 0,148 (app) + posto e taxas como no miio, IVA incl."},
-  {"operator":"Via Verde","station":"Alto de Cabreira, Circunvalação 26 (150 kW)","type":"DC","eurPerKwh":0.7013,"activationFeeEur":0,"perMinuteFeeEur":null,"priceDate":"2026-11-24","source":"Calculado: energia Via Verde 0,148 (app) + posto e taxas como no miio, IVA incl."},
-  {"operator":"Via Verde","station":"Estr. Monte da Cabreira 1 (150 kW)","type":"DC","eurPerKwh":0.7013,"activationFeeEur":0,"perMinuteFeeEur":null,"priceDate":"2026-11-24","source":"Calculado: energia Via Verde 0,148 (app) + posto e taxas como no miio, IVA incl."},
-  {"operator":"Via Verde","station":"Av. Helen Keller (90 kW)","type":"DC","eurPerKwh":0.7604,"activationFeeEur":0.615,"perMinuteFeeEur":null,"priceDate":"2026-11-24","source":"Calculado: energia Via Verde 0,148 (app) + posto e taxas como no miio, IVA incl."},
-  {"operator":"Via Verde","station":"OER-00239 (200 kW, nome por confirmar)","type":"DC","eurPerKwh":0.785,"activationFeeEur":0,"perMinuteFeeEur":null,"priceDate":"2026-11-24","source":"Calculado: energia Via Verde 0,148 (app) + posto e taxas como no miio, IVA incl."},
-  {"operator":"Via Verde","station":"LSB-01032 (22 kW, nome por confirmar)","type":"AC","eurPerKwh":0.3299,"activationFeeEur":0,"perMinuteFeeEur":0.0738,"priceDate":"2026-11-24","source":"Calculado: energia Via Verde 0,148 (app) + posto e taxas como no miio, IVA incl."}
-]
+{
+  "regulated": { "tarMT": 0.0812, "tarBT": 0.1192, "iec": 0.001, "iva": 0.23 },
+  "cards": [
+    { "name": "PRIO", "cemeEurPerKwh": 0.1399, "priceDate": "2026-11-24", "source": "Tarifário PRIO Electric, fora de vazio (8h-22h), sem TAR/IEC/IVA" },
+    { "name": "miio", "cemeEurPerKwh": 0.24, "priceDate": "2026-11-24", "source": "Simulação app miio 24/11/2026 (7,92 € / 33 kWh)" },
+    { "name": "Via Verde", "cemeEurPerKwh": 0.148, "priceDate": "2026-11-24", "source": "App Via Verde, energia 0,148 €/kWh sem IVA" }
+  ],
+  "stations": [
+    { "name": "Av. dos Cavaleiros 70 (100 kW)", "address": "Avenida dos Cavaleiros 70, Carnaxide, Oeiras", "lat": null, "lng": null, "type": "DC", "opcEurPerKwh": 0.2033, "opcActivationEur": 0.2032, "opcPerMinEur": null, "tar": "MT", "priceDate": "2026-11-24", "source": "App Via Verde + simulação miio (OER-00262)" },
+    { "name": "Alto de Cabreira, Circunvalação 26 (150 kW)", "address": "Estrada da Circunvalação 26, Alto da Cabreira, Amadora", "lat": null, "lng": null, "type": "DC", "opcEurPerKwh": 0.34, "opcActivationEur": null, "opcPerMinEur": null, "tar": "MT", "priceDate": "2026-11-24", "source": "App Via Verde + simulação miio (AMD-00098)" },
+    { "name": "Estr. Monte da Cabreira 1 (150 kW)", "address": "Estrada do Monte da Cabreira 1, Amadora", "lat": null, "lng": null, "type": "DC", "opcEurPerKwh": 0.34, "opcActivationEur": null, "opcPerMinEur": null, "tar": "MT", "priceDate": "2026-11-24", "source": "App Via Verde + simulação miio (AMD-00054)" },
+    { "name": "Av. Helen Keller (90 kW)", "address": "Avenida Helen Keller, 1400-197 Lisboa", "lat": null, "lng": null, "type": "DC", "opcEurPerKwh": 0.35, "opcActivationEur": 0.5, "opcPerMinEur": null, "tar": "BT", "priceDate": "2026-11-24", "source": "App Via Verde + simulação miio (LSB-00995)" },
+    { "name": "OER-00239 (200 kW, nome por confirmar)", "address": null, "lat": null, "lng": null, "type": "DC", "opcEurPerKwh": 0.37, "opcActivationEur": null, "opcPerMinEur": null, "tar": "BT", "priceDate": "2026-11-24", "source": "Simulação miio (OER-00239)" },
+    { "name": "LSB-01032 (22 kW, nome por confirmar)", "address": null, "lat": null, "lng": null, "type": "AC", "opcEurPerKwh": 0, "opcActivationEur": null, "opcPerMinEur": 0.06, "tar": "BT", "priceDate": "2026-11-24", "source": "Simulação miio (LSB-01032)" }
+  ]
+}
