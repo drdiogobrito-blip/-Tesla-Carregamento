@@ -6,6 +6,7 @@ import {
   formatEur, formatEurPerKwh, formatPriceDate, simulate, validateInput,
   type SimulationInput, type SimulationOutput,
 } from "@/lib/calc";
+import MapView from "./MapView";
 import { buildTariffs, distanceKm, embedUrl, navUrl, wazeUrl, type Station, type TariffData } from "@/lib/stations";
 
 const td = data as unknown as TariffData;
@@ -45,6 +46,7 @@ export default function Home() {
   const [coords, setCoords] = useState<Record<string, Pt>>({});
   const [geoMsg, setGeoMsg] = useState<string | null>(null);
   const [mapOpen, setMapOpen] = useState<string | null>(null);
+  const [view, setView] = useState<"list" | "map">("list");
 
   useEffect(() => {
     try {
@@ -70,32 +72,41 @@ export default function Home() {
     setResult(simulate(tariffs, input));
   }
 
-  // Posição do utilizador + coordenadas dos postos (do ficheiro, ou pela morada via OpenStreetMap)
+  // Coordenadas dos postos: do ficheiro, ou pela morada via OpenStreetMap (guardadas no telemóvel)
+  async function ensureCoords() {
+    const next = { ...coords };
+    let changed = false;
+    for (const s of td.stations) {
+      if (s.lat != null && s.lng != null) { next[s.name] = { lat: s.lat, lng: s.lng }; continue; }
+      if (!s.address || next[s.name]) continue;
+      try {
+        const r = await fetch(`https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(s.address)}`);
+        const j = await r.json();
+        if (j[0]) { next[s.name] = { lat: Number(j[0].lat), lng: Number(j[0].lon) }; changed = true; setCoords({ ...next }); }
+      } catch {}
+      await new Promise((res) => setTimeout(res, 1100));
+    }
+    if (changed) { try { localStorage.setItem(GEO_KEY, JSON.stringify(next)); } catch {} }
+  }
+
   function locate() {
     if (!navigator.geolocation) { setGeoMsg("Este browser não tem localização."); return; }
     setGeoMsg("A obter a tua localização…");
     navigator.geolocation.getCurrentPosition(
-      async (p) => {
+      (p) => {
         setMe({ lat: p.coords.latitude, lng: p.coords.longitude });
         setSort("near");
         setGeoMsg(null);
-        const next = { ...coords };
-        for (const s of td.stations) {
-          if (s.lat != null && s.lng != null) { next[s.name] = { lat: s.lat, lng: s.lng }; continue; }
-          if (!s.address || next[s.name]) continue;
-          try {
-            const r = await fetch(`https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(s.address)}`);
-            const j = await r.json();
-            if (j[0]) next[s.name] = { lat: Number(j[0].lat), lng: Number(j[0].lon) };
-          } catch {}
-          await new Promise((res) => setTimeout(res, 1100));
-        }
-        setCoords(next);
-        try { localStorage.setItem(GEO_KEY, JSON.stringify(next)); } catch {}
+        ensureCoords();
       },
       () => setGeoMsg("Não consegui obter a localização. Autoriza-a nas definições do browser."),
       { enableHighAccuracy: true, timeout: 15000 },
     );
+  }
+
+  function showView(v: "list" | "map") {
+    setView(v);
+    if (v === "map") ensureCoords();
   }
 
   const rows = useMemo(() => {
@@ -171,6 +182,14 @@ export default function Home() {
                 </div>
               )}
 
+              <div className="flex gap-2">
+                <button className={btn + (view === "list" ? " bg-zinc-800" : "")} onClick={() => showView("list")}>Lista</button>
+                <button className={btn + (view === "map" ? " bg-zinc-800" : "")} onClick={() => showView("map")}>Mapa</button>
+              </div>
+
+              {view === "map" && <MapView result={result} stations={td.stations} coords={coords} me={me} />}
+
+              {view === "list" && (<>
               <div className="flex flex-wrap items-center gap-2">
                 <button className={btn + (sort === "price" ? " bg-zinc-800" : "")} onClick={() => setSort("price")}>Mais barato</button>
                 <button className={btn + (sort === "near" ? " bg-zinc-800" : "")} onClick={me ? () => setSort("near") : locate}>
@@ -216,6 +235,7 @@ export default function Home() {
                   );
                 })}
               </ul>
+              </>)}
 
               {result.pending.length > 0 && (
                 <ul className="space-y-2">
